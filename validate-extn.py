@@ -94,7 +94,6 @@ Run pre-commit options on a repository transaction."""
                   return 1
 
   except:
-      f.write("Exception Occurred\n")
       traceback.print_exc(file=sys.stderr)
       return 1
 

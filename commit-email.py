@@ -31,6 +31,10 @@
 #       (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #       OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+'''
+You can call this script from post-commit hook as follows :
+/usr/share/subversion/hook-scripts/commit-email.py "$REPOS" "$REV" commit-watchers@your.org
+'''
 
 import smtplib
 import os
@@ -65,10 +69,12 @@ def send_mail(send_from, send_to, subject, text, server="localhost"):
 def main():
 
   try:
+    argc = len(sys.argv)
     repository = sys.argv[1]
     revision = sys.argv[2]
-    receiver = sys.argv[3]
-    receivers.append(receiver)
+# Rest of the arguments is a list of email addresses.
+    for i in range(3,argc):
+        receivers.append(sys.argv[i])
 
 # Get the diff from svnlook
     diffcmd = "svnlook diff " + repository + " -r " + revision

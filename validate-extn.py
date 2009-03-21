@@ -60,7 +60,7 @@ def has_space(fname):
         return 1
 
 def disallowed_extn(fname):
-    reobj = re.compile(r"""^.+\.((obj)|(lib)|(dll)|(exe)|(jar)|(pdb)|(idb)|(pch)|(bsc)|(ncb)|(ilk)|(sbr))""")
+    reobj = re.compile(r"""^.+\.((obj)|(lib)|(dll)|(exe)|(jar)|(pdb)|(idb)|(pch)|(bsc)|(ncb)|(ilk)|(suo)|(sbr))""")
     if (reobj.search(fname) != None):
         return 1
     else:

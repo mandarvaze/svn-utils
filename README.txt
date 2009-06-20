@@ -9,3 +9,7 @@ You can call this script from post-commit hook as follows :
 /usr/share/subversion/hook-scripts/commit-email.py "$REPOS" "$REV" commit-watchers@your.org
 This will send out an email with the details of the commit
 
+vsscleanup.py :
+This is used to preprocess the VSS data before you start the migration.
+It helps remove unwanted files from VSS so that size of data to be processed is reduced.
+This will work ONLY on windows (since VSS is supported only on Windows)
